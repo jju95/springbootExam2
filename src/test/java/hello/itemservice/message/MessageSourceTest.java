@@ -41,4 +41,14 @@ public class MessageSourceTest {
         String message = ms.getMessage("hello.name", new Object[]{"Spring"}, null);
         Assertions.assertThat(message).isEqualTo("안녕 Spring");
     }
+
+    @Test
+    void defaultLang() {
+        Assertions.assertThat(ms.getMessage("안녕", null, Locale.KOREAN));
+    }
+
+    @Test
+    void enLang(){
+        Assertions.assertThat(ms.getMessage("hello", null, Locale.US));
+    }
 }
